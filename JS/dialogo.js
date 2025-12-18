@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 400);
 
         // iniciar diálogo
-        fetch("php/dialogo.php")
+        fetch("php/dialogo.json")
             .then(r => r.json())
             .then(startDialogue)
             .catch(err => console.error("Erro a carregar diálogo:", err));
