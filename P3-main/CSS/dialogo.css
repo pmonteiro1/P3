@@ -1,0 +1,93 @@
+.menu-wrapper.dialogo-fundo {
+    background-image: url("../Imagens/Casa_Sala.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease;
+}
+
+/* CAIXA DE DIÁLOGO */
+#dialog-box {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(40px);
+    opacity: 0;
+
+    width: clamp(700px, 60vw, 1100px);
+    min-height: 140px;
+    max-height: 140px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    padding: 22px 32px;
+    border-radius: 10px;
+
+    background-size: cover;
+    background-position: center;
+
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+
+    clip-path: polygon(
+            3% 0%, 97% 3%,
+            100% 20%, 98% 80%,
+            95% 100%, 5% 97%,
+            0% 70%, 2% 20%
+    );
+
+    font-family: system-ui, sans-serif;
+    font-size: 1.2rem;
+    color: white;
+
+    box-sizing: border-box;
+    transition: opacity .4s ease, transform .4s ease;
+}
+
+/* Mary = vermelho */
+#dialog-box.mary {
+    background-color: rgba(179, 0, 0, 0.85);
+}
+
+/* Patrick = verde */
+#dialog-box.patrick {
+    background-color: rgba(10, 125, 0, 0.85);
+}
+
+/* Avatar pequeno dentro da caixa (70px como pediste) */
+#dialog-avatar {
+    width: 1px;
+    height: auto;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.4));
+    transform: translateY(10px);
+    transition: transform .3s ease;
+    z-index: 20;
+}
+
+#dialog-box.show #dialog-avatar {
+    transform: translateY(0);
+}
+
+/* IMAGEM GRANDE SOBREPOSTA DO PERSONAGEM (fora da caixa) */
+#personagem-imagem {
+    position: absolute;
+    bottom: 2%;              /* aparece por cima da caixa */
+    left: 79%;
+    
+    max-height: 300px;          /* ajusta se quiseres maior/menor */
+    width: auto;
+
+    z-index: 50;                /* acima da caixa */
+    pointer-events: none;       /* não bloqueia cliques */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+#personagem-imagem.show {
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
